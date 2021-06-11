@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/eureka-upload-form/static/css/main.d46be92f.chunk.css",
+    "main.js": "/eureka-upload-form/static/js/main.9900b19b.chunk.js",
+    "main.js.map": "/eureka-upload-form/static/js/main.9900b19b.chunk.js.map",
+    "runtime-main.js": "/eureka-upload-form/static/js/runtime-main.2a2c9fd3.js",
+    "runtime-main.js.map": "/eureka-upload-form/static/js/runtime-main.2a2c9fd3.js.map",
+    "static/css/2.61b4cb56.chunk.css": "/eureka-upload-form/static/css/2.61b4cb56.chunk.css",
+    "static/js/2.a0f986cc.chunk.js": "/eureka-upload-form/static/js/2.a0f986cc.chunk.js",
+    "static/js/2.a0f986cc.chunk.js.map": "/eureka-upload-form/static/js/2.a0f986cc.chunk.js.map",
+    "static/js/3.9efe4bad.chunk.js": "/eureka-upload-form/static/js/3.9efe4bad.chunk.js",
+    "static/js/3.9efe4bad.chunk.js.map": "/eureka-upload-form/static/js/3.9efe4bad.chunk.js.map",
+    "index.html": "/eureka-upload-form/index.html",
+    "static/css/2.61b4cb56.chunk.css.map": "/eureka-upload-form/static/css/2.61b4cb56.chunk.css.map",
+    "static/css/main.d46be92f.chunk.css.map": "/eureka-upload-form/static/css/main.d46be92f.chunk.css.map",
+    "static/js/2.a0f986cc.chunk.js.LICENSE.txt": "/eureka-upload-form/static/js/2.a0f986cc.chunk.js.LICENSE.txt",
+    "static/media/logo.6ce24c58.svg": "/eureka-upload-form/static/media/logo.6ce24c58.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.2a2c9fd3.js",
+    "static/css/2.61b4cb56.chunk.css",
+    "static/js/2.a0f986cc.chunk.js",
+    "static/css/main.d46be92f.chunk.css",
+    "static/js/main.9900b19b.chunk.js"
+  ]
+}
