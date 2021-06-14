@@ -59,7 +59,7 @@ function App() {
       "Keywords",
       "Creators",
       "Languages",
-      "DateOfCompletion",
+      "KnowledgeObjectDate",
       "IntendedPurpose",
       "GeographicalLocations"
     ],
@@ -116,6 +116,72 @@ function App() {
                     "CC BY-NC-ND", ]
                   }
                 }
+              }
+            ]
+          }
+        }
+      },
+      "completiondate":{
+        "type": "object",
+        "properties": {
+          "Is the date of completion for the object available?": {
+            "type": "string",
+            "enum": ["I only know the year of completion",
+            "I have the exact date available"
+          ]
+            ,
+            "default": "I have the exact date available"
+          }
+        },
+        "required": [
+          "Is the date of completion for the object available?"
+        ],
+        "dependencies": {
+          "Is the date of completion for the object available?": {
+            "oneOf": [
+              {
+                "properties": {
+                  "Is the date of completion for the object available?": {
+                    "enum": [
+                      "I have the exact date available"
+                    ]
+                  },
+                  "ExactDate": {
+                    "title": "Day of Completion",
+                    "description": "The day on which work on the knowledge object was completed",
+                    "type": "object",
+                    "properties": {
+                      "date": {
+                        "type": "string",
+                        "format": "date"
+                      }
+                    },
+                    "required": [
+                      "date"
+                    ],
+                  }
+                },
+                "required": [
+                  "ExactDate"
+                ],
+              },
+              {
+                "properties": {
+                  "Is the date of completion for the object available?": {
+                    "enum": [
+                    "I only know the year of completion"
+                  ]
+                  },
+                  "yearOfCompletion": {
+                    "title": "Year of Completion",
+                    "type": "integer",
+                    "minimum": 1900,
+                    "maximum": 2100
+                  },
+                },
+                "required": [
+                  "yearOfCompletion"
+                ],
               }
             ]
           }
@@ -275,20 +341,6 @@ function App() {
             "Swedish"]
           }
       },
-      "DateofCompletion": {
-        "title": "Date of Completion",
-        "description": "The date on which work on the knowledge object was completed",
-        "type": "object",
-        "properties": {
-          "date": {
-            "type": "string",
-            "format": "date"
-          }
-        },
-        "required": [
-          "date"
-        ],
-      },
       "License": {
         "title": "License",
         "$ref": "#/definitions/license"
@@ -332,6 +384,10 @@ function App() {
                 "Dissemination",
                 "Education/Training"]
       },
+      "KnowledgeObjectDate": {
+        "title": "Completion Date",
+        "$ref": "#/definitions/completiondate"
+      },
       "GeographicalLocations": {
         "title": "Geographical Location(s)",
         "description": "Please select all European countries referenced in the knowledge object's contents.",
@@ -368,7 +424,7 @@ function App() {
                        "Slovenia",
                        "Spain",
                        "Sweden"]
-          }
+          },
       }
     }
   };
