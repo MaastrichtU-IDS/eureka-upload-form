@@ -20,9 +20,21 @@ function App() {
   }
 
   function validate(formData, errors) {
-  // if (formData.pass1 !== formData.pass2) {
-  //   errors.pass2.addError("This field is required");
-  // }
+  if(formData.Title && formData.Title.length > 100) {
+    errors.Title.addError("Please provide a shorter title");
+  }
+  if (formData.ProjectName && formData.ProjectName.length > 100) {
+    errors.ProjectName.addError("Please provide a shorter project name");
+  }
+  if (formData.ProjectAcronym && formData.ProjectAcronym.length > 5) {
+    errors.ProjectAcronym.addError("Please provide a shorter project acronym");
+  }
+  if (formData.ProjectURL && formData.ProjectURL.length > 2000) {
+    errors.ProjectURL.addError("Please provide a shorter project URL");
+  }
+  if(formData.Description && formData.Description.length > 500) {
+    errors.Description.addError("Please provide a shorter description");
+  }
   return errors;
 }
 
@@ -31,17 +43,17 @@ function App() {
     "description": "Single object upload form for the EUREKA Farmbook. For large automated large scale uploads of already structured metadata, please contact us on the #eureka-development slack channel.",
     "type": "object",
     "required": [
-      "Knowledge Object Location",
+      "KnowledgeObjectLocation",
       "Title",
       "Description",
-      "Project Name",
-      "Project Acronym",
-      "Project URL",
+      "ProjectName",
+      "ProjectAcronym",
+      "ProjectURL",
       "Category",
       "Keywords",
       "Creators",
       "Languages",
-      "Date of Creation",
+      "DateofCreation",
       "PotentialAction",
       "Place(s)"
     ],
@@ -159,7 +171,7 @@ function App() {
       }
     },
     "properties": {
-      "Knowledge Object Location": {
+      "KnowledgeObjectLocation": {
         "title": "Knowledge Object Location",
         "$ref": "#/definitions/location"
       },
@@ -173,17 +185,17 @@ function App() {
         "title": "Description",
         "description": "A short (500 character or around 100 words) summary of the knowledge object."
       },
-      "Project Name": {
+      "ProjectName": {
         "type": "string",
         "title": "Project Name",
         "description": "The project under which the knowledge object was created"
       },
-      "Project Acronym": {
+      "ProjectAcronym": {
         "type": "string",
         "title": "Project Acronym",
         "description": "The acronym of the project under which the knowledge object was created"
       },
-      "Project URL": {
+      "ProjectURL": {
         "type": "string",
         "title": "Project URL",
         "description": "The main URL of the project under which the knowledge object was created"
@@ -253,7 +265,7 @@ function App() {
             "Swedish"]
           }
       },
-      "Date of Creation": {
+      "DateofCreation": {
         "title": "Date of Creation",
         "description": "The date on which the knowledge object was created",
         "type": "object",
@@ -268,7 +280,7 @@ function App() {
         ],
       },
       "License": {
-        "title": "Knowledge Object Location",
+        "title": "License",
         "$ref": "#/definitions/license"
       },
       "Type": {
