@@ -1,11 +1,19 @@
 import './App.css';
 import Form from "@rjsf/material-ui";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import firebase from './FireBase';
 
 function App() {
+  function submitForm({formData}, e) {
+    console.log("Data submitted: ",  formData);
+    formData.KnowledgeObjectLocation.File = formData.KnowledgeObjectLocation.File.substring(0,100);
+    firebase.firestore().collection('knowledge-objects')
+    .add(formData);
+  }
+
   function transformErrors(errors) {
     return errors.map(error => {
-      console.log(error.name);
+
       if (error.name === "enum") {
         error.message = ""
       }
@@ -248,7 +256,7 @@ function App() {
     },
     "properties": {
       "KnowledgeObjectLocation": {
-        "title": "Knowledge Object Location",
+        "title": "Knowledge Object",
         "$ref": "#/definitions/location"
       },
       "Title": {
@@ -429,8 +437,13 @@ function App() {
     }
   };
   const uiSchema = {
-    "Description": {
-      "ui:widget": "textarea"
+    Description: {
+      "ui:widget": "textarea",
+      "ui:help": (
+        <div>
+          <a href="#">test</a>
+        </div>
+      )
     },
     "Keywords": {
       "ui:options": {
@@ -451,7 +464,39 @@ function App() {
     }
   };
   const formData = {
-  };
+    //testdata
+    // "Keywords": [
+    //     "fdsa"
+    // ],
+    // "Creators": [
+    //     "asdf"
+    // ],
+    // "Languages": [
+    //     "German"
+    // ],
+    // "License": {
+    //     "Under which license will the knowledge object be made available?": "CC BY"
+    // },
+    // "Type": [
+    //     "handbook"
+    // ],
+    // "KnowledgeObjectDate": {
+    //     "Is the date of completion for the object available?": "I have the exact date available",
+    //     "ExactDate": {
+    //         "date": "2021-06-05"
+    //     }
+    // },
+    // "GeographicalLocations": [
+    //     "Finland"
+    // ],
+    // "Title": "fdsafdsafas",
+    // "ProjectName": "MyProjectName",
+    // "ProjectAcronym": "MPN",
+    // "ProjectURL": "https://mpn.com",
+    // "Category": "Presentation",
+    // "IntendedPurpose": "Communication",
+    // "Description": "fdsfasdfsadadsfdsfafdsfdsdsafdsfassfdfd"
+};
 
   const log = (type) => console.log.bind(console, type);
   return (
@@ -460,7 +505,7 @@ function App() {
             uiSchema={uiSchema}
             formData={formData}
             onChange={log("changed")}
-            onSubmit={log("submitted")}
+            onSubmit={submitForm}
             onError={log("errors")}
             showErrorList={false}
             validate={validate}
