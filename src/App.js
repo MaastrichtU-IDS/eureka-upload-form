@@ -12,6 +12,12 @@ function App() {
       if (error.name === "required") {
         error.message = "Please provide a value for this field"
       }
+      if (error.name === "format" || error.name === "pattern") {
+        error.message = "Please provide the correct format for this field"
+      }
+      if (error.name === "pattern") {
+        error.message = "Please make sure the url starts with http:// or https://"
+      }
       if (error.name === "oneOf") {
         error.message = ""
       }
@@ -53,9 +59,9 @@ function App() {
       "Keywords",
       "Creators",
       "Languages",
-      "DateofCreation",
-      "PotentialAction",
-      "Place(s)"
+      "DateOfCompletion",
+      "IntendedPurpose",
+      "GeographicalLocations"
     ],
     "definitions": {
       "license":{
@@ -89,6 +95,8 @@ function App() {
                   },
                   "License URL": {
                     "type": "string",
+                    "format": "uri",
+                    "pattern": "^http.?://",
                     "title": "Please provide the URL to the license"
                   }
                 },
@@ -158,6 +166,8 @@ function App() {
                   },
                   "Knowledge Object URL": {
                     "type": "string",
+                    "format": "uri",
+                    "pattern": "^http.?://",
                     "description": "the URL to the knowledge object"
                   }
                 },
@@ -265,9 +275,9 @@ function App() {
             "Swedish"]
           }
       },
-      "DateofCreation": {
-        "title": "Date of Creation",
-        "description": "The date on which the knowledge object was created",
+      "DateofCompletion": {
+        "title": "Date of Completion",
+        "description": "The date on which work on the knowledge object was completed",
         "type": "object",
         "properties": {
           "date": {
@@ -314,16 +324,16 @@ function App() {
             "other"]
           }
       },
-      "PotentialAction": {
+      "IntendedPurpose": {
         "type": "string",
-        "title": "Potential Action",
+        "title": "Intended Purpose",
         "enum": ["Access to Data",
                 "Communication",
                 "Dissemination",
                 "Education/Training"]
       },
-      "Place(s)": {
-        "title": "Place(s)",
+      "GeographicalLocations": {
+        "title": "Geographical Location(s)",
         "description": "Please select all European countries referenced in the knowledge object's contents.",
         "type": "array",
         "items": 
