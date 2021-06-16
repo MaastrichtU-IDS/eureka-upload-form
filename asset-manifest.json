@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/eureka-upload-form/static/css/main.d46be92f.chunk.css",
-    "main.js": "/eureka-upload-form/static/js/main.9afa1c1e.chunk.js",
-    "main.js.map": "/eureka-upload-form/static/js/main.9afa1c1e.chunk.js.map",
+    "main.js": "/eureka-upload-form/static/js/main.e93b1b59.chunk.js",
+    "main.js.map": "/eureka-upload-form/static/js/main.e93b1b59.chunk.js.map",
     "runtime-main.js": "/eureka-upload-form/static/js/runtime-main.65b8d681.js",
     "runtime-main.js.map": "/eureka-upload-form/static/js/runtime-main.65b8d681.js.map",
     "static/css/2.61b4cb56.chunk.css": "/eureka-upload-form/static/css/2.61b4cb56.chunk.css",
@@ -20,6 +20,6 @@
     "static/css/2.61b4cb56.chunk.css",
     "static/js/2.b7d6d805.chunk.js",
     "static/css/main.d46be92f.chunk.css",
-    "static/js/main.9afa1c1e.chunk.js"
+    "static/js/main.e93b1b59.chunk.js"
   ]
 }
